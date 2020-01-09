@@ -29,27 +29,29 @@ def main():
                 access_token_key=ACCESS_TOKEN,
                 access_token_secret=ACCESS_SECRET)
 
-    results = t.GetSearch(raw_query="q=%23CapitalOne")
+    #results = t.GetSearch(raw_query="q=%23CapitalOne")
+    results = t.GetSearch(term='Capital One')
 
-    print(results)
+    print(results[0])
 
-    r = requests.get(url=URL, params=params)
-    data = r.json()
+    #r = requests.get(url=URL, params=params)
+    #data = r.json()
 
     sid = SentimentIntensityAnalyzer()
 
-    for sentence in data:
+    #for sentence in data:
 
-        result = sid.polarity_scores(sentence)
+    #    result = sid.polarity_scores(sentence)
     #    data['tweet']['results'] = 
 
 
 
-    return jsonify(data)
+    #return jsonify(data)
     
 
 
 if __name__ == '__main__':
    # ssl._create_default_https_context = _create_unverified_https_context
    # nltk.download('vader_lexicon')
-    app.run(debug=False, use_reloader=False)
+    #app.run(debug=False, use_reloader=False)
+    main()
