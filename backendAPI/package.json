@@ -1,0 +1,22 @@
+{
+  "name": "c1-hackathon",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "latest"
+  },
+  "description": "Summit Hackathon Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VincentVTran/C1-Hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VincentVTran/C1-Hackathon/issues"
+  },
+  "homepage": "https://github.com/VincentVTran/C1-Hackathon#readme"
+}
