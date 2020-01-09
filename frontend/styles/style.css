@@ -22,9 +22,9 @@ html {
     height: 100vh;
 }
 
-.search-container {
+#search-bar {
     padding: 1em 1em 1em 1em;
-    background: #dd9c4a;
+    background: #004978;
     text-align: center;
     border-color: #000000;
     border-style: solid;
