@@ -19,8 +19,23 @@ ACCESS_SECRET = keys['Access Token Secret']
 CONSUMER_KEY = keys['API Key']
 CONSUMER_SECRET = keys['API Secret Key']
 
-# url for API calls used later
-# URL = ''
+#################
+#
+# HOME PAGE
+#
+#################
+
+# Main route to render the home page of the app
+@app.route('/')
+def index():
+    return render_template('../frontend/index.html')
+
+
+#################
+#
+# API ROUTES
+#
+#################
 
 @app.route('/api/<term>')
 def main(term):
