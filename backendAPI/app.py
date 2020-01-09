@@ -4,6 +4,7 @@ import ssl
 import nltk
 import requests
 import twitter
+import pprint
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from flask import Flask, render_template, url_for, request, redirect, session
@@ -29,24 +30,13 @@ def main():
                 access_token_key=ACCESS_TOKEN,
                 access_token_secret=ACCESS_SECRET)
 
-    #results = t.GetSearch(raw_query="q=%23CapitalOne")
-    results = t.GetSearch(term='Capital One')
+    results = t.GetSearch(term='Capital one', count=100)
 
-    print(results[0])
-
-    #r = requests.get(url=URL, params=params)
-    #data = r.json()
+    print(results)
 
     sid = SentimentIntensityAnalyzer()
 
-    #for sentence in data:
-
-    #    result = sid.polarity_scores(sentence)
-    #    data['tweet']['results'] = 
-
-
-
-    #return jsonify(data)
+   
     
 
 
