@@ -28,7 +28,7 @@ CONSUMER_SECRET = keys['API Secret Key']
 # Main route to render the home page of the app
 @app.route('/')
 def index():
-    return render_template('../frontend/index.html')
+    return render_template('index.html', template_folder="../frontend")
 
 
 #################
@@ -38,7 +38,7 @@ def index():
 #################
 
 @app.route('/api/<term>')
-def main(term):
+def main(term='Capital One'):
     # TWITTER API CALL
     t = twitter.Api(consumer_key=CONSUMER_KEY,
                 consumer_secret=CONSUMER_SECRET,
