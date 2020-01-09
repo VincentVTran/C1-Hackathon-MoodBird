@@ -19,11 +19,26 @@ ACCESS_SECRET = keys['Access Token Secret']
 CONSUMER_KEY = keys['API Key']
 CONSUMER_SECRET = keys['API Secret Key']
 
-# url for API calls used later
-# URL = ''
+#################
+#
+# HOME PAGE
+#
+#################
 
-@app.route('/api')
-def main():
+# Main route to render the home page of the app
+@app.route('/')
+def index():
+    return render_template('../frontend/index.html')
+
+
+#################
+#
+# API ROUTES
+#
+#################
+
+@app.route('/api/<term>')
+def main(term):
     # TWITTER API CALL
     t = twitter.Api(consumer_key=CONSUMER_KEY,
                 consumer_secret=CONSUMER_SECRET,
