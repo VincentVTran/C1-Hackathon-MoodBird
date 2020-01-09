@@ -37,8 +37,11 @@ def index():
 #
 #################
 
-@app.route('/api/<term>')
-def main(term='Capital One'):
+@app.route('/api')
+def main():
+
+    # ADD A PARAMETER SEARCH TERM
+
     # TWITTER API CALL
     t = twitter.Api(consumer_key=CONSUMER_KEY,
                 consumer_secret=CONSUMER_SECRET,
