@@ -2,26 +2,29 @@ import os
 import json 
 import ssl
 import nltk
+import requests
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from flask import Flask, render_template, url_for, request, redirect, session
 
 app = Flask(__name__)
 
-# URL = 
+# url for API calls used later
+URL = ''
 
-# 
 @app.route('/api')
 def main():
 
     # TWITTER API CALL
 
     sid = SentimentIntensityAnalyzer()
-    print(sid.polarity_scores('testing'))
 
-    # LOOP FOR 
+    result = sid.polarity_scores('testing')
 
-    return jsonify({"test":"testing"})
+
+    
+
+    return 
 
 
 if __name__ == '__main__':
