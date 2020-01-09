@@ -30,14 +30,11 @@ def main():
                 access_token_key=ACCESS_TOKEN,
                 access_token_secret=ACCESS_SECRET)
 
-    results = t.GetSearch(term='Capital one', count=100)
+    results = t.GetSearch(term='Capital one', count=10, return_json=True)#, geocode="39.290386, -76.612190, 100mi")
 
     print(results)
 
     sid = SentimentIntensityAnalyzer()
-
-   
-    
 
 
 if __name__ == '__main__':
