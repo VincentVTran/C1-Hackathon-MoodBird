@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OverallStatusComponent } from './pages/overall-status/overall-status.component';
+import { OverallPageComponent } from './pages/overall-page/overall-page.component';
+import { RealtimePageComponent } from './pages/realtime-page/realtime-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OverallStatusComponent
+    OverallPageComponent,
+    RealtimePageComponent,
   ],
   imports: [
     BrowserModule,

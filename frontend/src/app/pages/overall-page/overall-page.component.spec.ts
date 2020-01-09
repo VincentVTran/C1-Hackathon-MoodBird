@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverallStatusComponent } from './overall-status.component';
+import { OverallPageComponent } from './overall-page.component';
 
-describe('OverallStatusComponent', () => {
-  let component: OverallStatusComponent;
-  let fixture: ComponentFixture<OverallStatusComponent>;
+describe('OverallPageComponent', () => {
+  let component: OverallPageComponent;
+  let fixture: ComponentFixture<OverallPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OverallStatusComponent ]
+      declarations: [ OverallPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OverallStatusComponent);
+    fixture = TestBed.createComponent(OverallPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
