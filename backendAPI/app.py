@@ -22,15 +22,15 @@ CONSUMER_SECRET = keys['API Secret Key']
 # url for API calls used later
 # URL = ''
 
-@app.route('/api')
-def main():
+@app.route('/api/<term>')
+def main(term):
     # TWITTER API CALL
     t = twitter.Api(consumer_key=CONSUMER_KEY,
                 consumer_secret=CONSUMER_SECRET,
                 access_token_key=ACCESS_TOKEN,
                 access_token_secret=ACCESS_SECRET)
 
-    results = t.GetSearch(term='Capital one', count=100)
+    results = t.GetSearch(term=term, count=100)
 
     print(results)
 
