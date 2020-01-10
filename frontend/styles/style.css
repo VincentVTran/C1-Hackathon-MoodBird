@@ -14,20 +14,33 @@ html {
     height: 100vh;
 }
 
+.graph-container {
+    max-width : 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .scatter {
-    width: 30vw;
-    height: 30vh;
-    margin: 1rem;
+    max-width: 450px;
     display: inline-block;
-    white-space: normal;
     position: relative;
+    padding: 5px;
+    border: 5px;
 }
 
 .pie {
-    width: 30vw;
-    height: 30vh;
-    margin: 1rem;
+    max-width: 450px;
     display: inline-block;
-    white-space: normal;
+    position: relative;
+    padding: 5px;
+    border: 5px;
+}
+
+#clear {
+    clear: both;
+}
+
+canvas {
+    display: inline-block;
     position: relative;
 }

@@ -20,17 +20,21 @@
 
 <body>
     <h1 id="title">Capital One Customer Satisfaction</h1>
-    <div class="scatter">
-        <canvas id="scatterPlot"></canvas>
+
+    <div class="graph-container">
+
+        <div class="scatter">
+            <h2>Tweet Sentiment Visualization</h2>
+            <canvas id="scatterPlot"></canvas>
+        </div>
+        <div class="pie">
+            <h2>Sentiment Distributions</h2>
+            <canvas id="pieChart"></canvas>
+        </div>
+        <div id="clear"></div>
     </div>
 
-    <div class="pie">
-        <canvas id="pieChart"></canvas>
-    </div>
-
-
-
-    <script>
+<script>
     var ctx = document.getElementById('scatterPlot').getContext('2d');
     var scatterChart = new Chart(ctx, {
     type: 'scatter',
@@ -60,24 +64,22 @@
     });
     // And for a pie chart
     var ctx2 = document.getElementById('pieChart').getContext('2d');
-    var pieChart = new Chart(ctx, {
+    var pieChart = new Chart(ctx2, {
   type: 'pie',
   data: {
-    labels: ['OK', 'WARNING', 'CRITICAL', 'UNKNOWN'],
+    labels: ['NEGATIVE', 'POSITIVE', 'NEUTRAL'],
     datasets: [{
-      label: '# of Tomatoes',
-      data: [12, 19, 3, 5],
+      label: 'Percentage of Sentiments',
+      data: [12, 19, 3],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
         'rgba(54, 162, 235, 0.2)',
         'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)'
       ],
       borderColor: [
         'rgba(255,99,132,1)',
         'rgba(54, 162, 235, 1)',
         'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)'
       ],
       borderWidth: 1
     }]
@@ -85,7 +87,6 @@
   options: {
    	cutoutPercentage: 40,
     responsive: false,
-
   }
 });
 </script>
