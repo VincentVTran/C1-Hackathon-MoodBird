@@ -34,10 +34,11 @@ auth = OAuth1(CONSUMER_KEY, CONSUMER_SECRET,
 @app.route('/api/<name>', methods=['GET', 'POST'])
 @cross_origin(supports_credentials=True)
 def main(name):
-    until = "&until="
-    url_date = '' # empty id holder
-    max_count = 100 # limit of 100
-    output = []
+    url_date = ''       # empty offset date holder
+    max_count = 100     # limit of 100
+    output = []         # empty output holder
+    
+    # initialize Sentiment model
     sid = SentimentIntensityAnalyzer()
 
     # PARAMETER SEARCH TERM
@@ -46,11 +47,12 @@ def main(name):
     for i in range(0,7):
 
         # TWITTER API CALL
-        url = "https://api.twitter.com/1.1/search/tweets.json?q=" + term + "&tweet_mode=extended&count=" + str(max_count) + "&locale=ja&since_id=0" + ('' if i == 0 else str(until) + str(url_date))
+        url = "https://api.twitter.com/1.1/search/tweets.json?q=" + term + "&tweet_mode=extended&count=" + str(max_count) + "&locale=ja&since_id=0" + ('' if i == 0 else "&until=" + str(url_date))
         results = requests.get(url=url, auth=auth)
         res = results.json()
 
         if('statuses' not in res):
+            # error checking
             print('STATUSES MISSING')
             break
 
@@ -61,13 +63,13 @@ def main(name):
             id = tweet['id']
 
             if('retweeted_status' in tweet.keys()):
-                #if text is a retweet, it may be truncated
+                # if text is a retweet, it may be truncated
                 text = tweet['retweeted_status']['full_text']
             else:
-                #otherwise get full text
+                # otherwise get full text
                 text = tweet['full_text']
             
-            #filter out any links and format date
+            # filter out any links and format date
             text = filter_out_links(text)
             url_date = tweet_format_to_date(date)
 
