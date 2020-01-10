@@ -9,6 +9,7 @@ var barData = [];
 
 
 function executeQuery(keyword) {
+  console.log("Keyword: "+prodURL+keyword)
   $.ajax({
     url: prodURL + keyword,
     success: function(data) {
