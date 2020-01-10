@@ -14,7 +14,35 @@ html {
     height: 100vh;
 }
 
-.scatter {
-    width: 30vw;
-    height: 30vh;
+.graph-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chart {
+    display: inline-block;
+    position: relative;
+    padding: 20px;
+    border: 5px;
+    -webkit-box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.chart:hover {
+    -webkit-box-shadow: 2px 8px 45px #dd9c4a;
+        box-shadow: 2px 8px 45px #dd9c4a;
+    -webkit-transform: translate3D(0, -2px, 0);
+        transform: translate3D(0, -2px, 0);
+}
+
+.chart:click
+#clear {
+    clear: both;
+}
+
+canvas {
+    display: inline-block;
+    position: relative;
 }
