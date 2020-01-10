@@ -3,16 +3,16 @@
 h1 {
     font-family: "Comfortaa";
     color: #FFFFFF;
-    margin: 0px;
+    margin: 0vw;
     padding: 2rem;
     width: 100%;
     background-color: #D12E33;
 }   
 
 body {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
+    margin: 0vw;
+    padding: 0vw;
+    border: 0vw;
 }
 
 p {
@@ -23,6 +23,8 @@ p {
 }
 
 html {
+    width: 100vw;
+    height: 100vh;
     text-align: center;
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
@@ -48,16 +50,16 @@ html {
     width: 30vw;
     height: 30vh;
     background-color: #FFFFFF;
-    -webkit-box-shadow: 2px 8px 45px #700550;
-    box-shadow: 2px 8px 45px #700550;
+    -webkit-box-shadow: 0.5vw 1vh 2vw #700550;
+    box-shadow: 0.5vw 1vh 2vw #700550;
     -webkit-transition: all 0.3s linear;
     transition: all 0.3s linear;
 }
 
 .chart:hover {
     z-index: 2;
-    -webkit-box-shadow: 4px 16px 45px rgb(156, 24, 117);
-    box-shadow: 4px 16px 45px rgb(156, 24, 117);
+    -webkit-box-shadow: 0.5vw 1vh 2vw #9C1875;
+    box-shadow: 0.5vw 1vh 2vw #9C1875;
     -webkit-transform: scale(1.75);
     transform: scale(1.75);
 }
@@ -81,7 +83,7 @@ canvas {
     display: inline-block;
     position: relative;
     margin: auto;
-    padding: 0px;
+    padding: 0vw;
 }
 
 canvas#pieChart {
@@ -95,6 +97,7 @@ canvas#pieChart {
     border-style: solid;
     border-radius: 1rem;
     border-color: #FFD622;
+    padding-left: 1em;
     font-size: 1em;
     outline: none;
     background-color: #2B2727;
@@ -107,19 +110,20 @@ canvas#pieChart {
 }
 
 ::placeholder {
-    color: white;
+    color: #FFFFFF;
 }
 
 #searchBar:focus {
     width: 80%;
     background-color: #505050;
+    color: #FFD622;
     -webkit-transition: width 0.4s ease-in-out;
     transition: 1s;
   }
 
 .search-bar-container {
-    margin: 0px;
+    margin: 0vw;
     margin-top: 15vh;
-    padding: 0px;
+    padding: 0vw;
     height: 10vh;
 }
