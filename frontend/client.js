@@ -3,7 +3,7 @@ const prodURL = 'http://vincentvtran.pythonanywhere.com/api/';
 const localURL = 'http://localhost:5000/'
 
 
-var scatterData = [];
+var scatterData = [{x:4,y:3}];
 var pieData = [1, 2, 3];
 const pieLabel = ["Negative", "Positive", "Neutral"];
 var barData = [];
@@ -14,8 +14,8 @@ var scatterChart = new Chart(ctx, {
   type: 'scatter',
   data: {
     datasets: [{
-      label: 'Scatter Dataset',
-      data: scatterData
+      label: 'Scatter Plot',
+      data: [{x: 10, y: 4}]
     }]
   },
   options: {
@@ -31,9 +31,39 @@ var scatterChart = new Chart(ctx, {
 //Bar Graph
 var ctx3 = document.getElementById('barGraph').getContext('2d');
 var myBarChart = new Chart(ctx3, {
-  type: 'horizontalBar',
-  data: [{ x: '2016-12-25', y: 20 }, { x: '2016-12-26', y: 10 }]
+  type: 'bar',
+  datasets: [{
+    label: '# of Votes',
+    data: [],
+    backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+    ],
+    borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+    ],
+    borderWidth: 1
+}],
+options: {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+}
 });
+
 
 // Pie Chart
 var ctx2 = document.getElementById('pieChart').getContext('2d');
@@ -71,7 +101,7 @@ function executeQuery(keyword) {
       console.log(data);
       addToPieGraph(data);
       addToScatterPlot(data);
-
+      // addToBarGraph(data);
       // for (var i = 0; i < data.length; i++) {
       // if (data[i].sentiment.neg > 0.5) {
       //   negatives++;
@@ -101,7 +131,7 @@ function addToScatterPlot(form){
 
   //Removing data
   for(i = 0;i < scatterChart.data.datasets.length;i++){
-    scatterChart.data.datasets.pop();
+    scatterChart.data.datasets[0].data.pop();
   }
 
   //Adding data
@@ -117,37 +147,49 @@ function addToScatterPlot(form){
     if(!categories.includes(extractedDate)){
       categories.push(extractedDate);
     }
-    newResult = {x: extractedDate, y: max};
-    console.log(newResult);
-    myBarChart.data.push(newResult);
+    
+    newResult = {x: categories.indexOf(extractedDate), y: max};
+    // console.log(newResult);
+    
+    scatterChart.data.datasets[0].data.push(newResult); 
+    // scatterChart.data.datasets.push(categories.indexOf(extractedDate));
+    // scatterChart.data.datasets[i].data.push(max);
   }
-  console.log(myBarChart.data);
-  myBarChart.update();
+  console.log(scatterChart.data.datasets);
+  scatterChart.update();
 }
 
 function addToBarGraph(form) {
    //Removing data
-  for(i = 0;i < scatterChart.data.datasets.length;i++){
+  for(i = 0;i < myBarChart.data.datasets.length;i++){
     myBarChart.data.labels.pop();
     myBarChart.data.datasets.pop();
   }
-
+  // console.log(myBarChart.data);
+  sum = 0;
+  average = 0;
   for(i=0;i<form.length;i++){
-    const extractedDate = form[i].date;
-    const extractedPositivity = form[i].sentiment.pos;
-    const extractedNegativity = form[i].sentiment.neg;
-    const extractedNeutral = form[i].sentiment.neu;
+    extractedDate = form[i].date;
+    extractedPositivity = form[i].sentiment.pos;
+    extractedNegativity = form[i].sentiment.neg;
+    extractedNeutral = form[i].sentiment.neu;
 
     sentiment = [extractedNeutral,extractedNegativity,extractedPositivity]
     sentiment.sort();
-    const max = sentiment[2];
-    if(!categories.includes(extractedDate)){
-      categories.push(extractedDate);
+    max = sentiment[2];
+    if(!myBarChart.data.labels.includes(extractedDate)){
+      myBarChart.data.labels.push(extractedDate);
     }
-    newResult = {x: extractedDate, y: max};
-    console.log(newResult);
-    myBarChart.data.push(newResult);
+    sum += max;
   }
+  average = sum/form.length;
+  myBarChart.data.datasets.push(average);
+  myBarChart.data.datasets.push(average);
+  myBarChart.data.datasets.push(average);
+  myBarChart.data.datasets.push(average);
+  myBarChart.data.datasets.push(average);
+  myBarChart.data.datasets.push(average);
+  myBarChart.data.datasets.push(average);
   console.log(myBarChart.data);
   myBarChart.update();
 }
