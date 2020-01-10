@@ -61,9 +61,11 @@ html {
 
 .chart:hover {
     -webkit-box-shadow: 4px 16px 45px rgb(156, 24, 117);
-        box-shadow: 4px 16px 45px rgb(156, 24, 117);
-    -webkit-transform: translate3D(0, -2px, 0);
-        transform: translate3D(0, -2px, 0);
+    box-shadow: 4px 16px 45px rgb(156, 24, 117);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transform-origin: center;
+    transform-origin: center;
 }
 
 canvas {
