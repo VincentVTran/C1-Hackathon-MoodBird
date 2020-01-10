@@ -23,7 +23,7 @@ body {
 
 .graph-wrapper {
     margin: auto;
-    overflow: none;
+    overflow: visible;
 }
 
 .graph-container-left {
@@ -41,7 +41,11 @@ body {
 .graph-container-bottom {
     margin-left: auto;
     margin-right: auto;
-    float: bottom;
+   
+}
+
+.divider {
+    height: 300px;
 }
 
 .graph-title {
