@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Rubik&display=swap");
+
+h1 {
+    font-family: "Comfortaa";
+    color: #FFFFFF;
+    margin: 0vw;
+    padding: 2rem;
+    width: 100%;
+    background-color: #D12E33;
+}   
+
+body {
+    margin: 0vw;
+    padding: 0vw;
+    border: 0vw;
+}
+
+p {
+    padding-bottom: 2rem;
+    font-size: 1.3rem;
+    font-family: "Rubik";
+    color: #FFD622;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.3;
+    background-color: #023D5B;
+}
+
+.graph-wrapper {
+    background: none;
+    -webkit-justify-content: center;
+    display: flex;
+    justify-content: center;
+    padding: 2vw;
+}
+
+.graph-container-left, .graph-container-middle, .graph-container-right {
+    width: 33%;
+    margin: 0.5vw;
+}
+
+.chart {
+    position: relative;
+    margin-top: 10vh;
+    width: 30vw;
+    height: 30vh;
+    border: 0.1rem;
+    border-style: solid;
+    border-radius: 0.5rem;
+    border-color: #700550;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0.5vw 1vh 2vw #700550;
+    box-shadow: 0.5vw 1vh 2vw #700550;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.chart:hover {
+    z-index: 2;
+    border-color: #9C1875;
+    -webkit-box-shadow: 0.5vw 1vh 2vw #9C1875;
+    box-shadow: 0.5vw 1vh 2vw #9C1875;
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
+}
+
+.chart#scatter:hover {
+    -webkit-transform-origin: left;
+    transform-origin: left;
+}
+
+.chart#pie:hover {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+}
+
+.chart#bar:hover {
+    -webkit-transform-origin: right;
+    transform-origin: right;
+}
+
+canvas {
+    display: inline-block;
+    position: relative;
+    margin: auto;
+    padding: 0vw;
+}
+
+canvas#pieChart {
+    height: 95%;
+}
+
+#searchBar {
+    height: 50%;
+    width: 30%;
+    border: 0.3rem;
+    border-style: solid;
+    border-radius: 1rem;
+    border-color: #FFD622;
+    padding-left: 1em;
+    font-size: 1em;
+    outline: none;
+    background-color: #2B2727;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+#searchBar:before {
+    background-color: #004978;
+}
+
+::placeholder {
+    color: #FFFFFF;
+}
+
+#searchBar:focus {
+    width: 80%;
+    background-color: #505050;
+    color: #FFD622;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: 1s;
+  }
+
+.search-bar-container {
+    margin: 0vw;
+    margin-top: 15vh;
+    padding: 0vw;
+    height: 10vh;
+}
