@@ -45,11 +45,6 @@ html {
     margin: 0.5vw;
 }
 
-.graph-container-left, .graph-container-middle, .graph-container-right:hover {
-    width: 33%;
-    margin: 0.5vw;
-}
-
 .chart {
     position: relative;
     width: 30vw;
