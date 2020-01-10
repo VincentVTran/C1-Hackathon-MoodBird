@@ -20,11 +20,19 @@
 
 <body>
     <h1 id="title">Capital One Customer Satisfaction</h1>
+<<<<<<< HEAD
     <div class="graph-container">
+=======
+    <h2>Tweet Sentiment Visualization</h2>
+    <br>
+>>>>>>> b9f8d8b60da4ce7f36fef7444b83016cc93a5a6a
     <div class="scatter">
         <canvas id="scatterPlot"></canvas>
     </div>
 
+    <br>
+    <h2>Sentiment Distributions</h2>
+    <br>
     <div class="pie">
         <canvas id="pieChart"></canvas>
     </div>
@@ -63,21 +71,19 @@
     var pieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ['OK', 'WARNING', 'CRITICAL', 'UNKNOWN'],
+    labels: ['NEGATIVE', 'POSITIVE', 'NEGATIVE'],
     datasets: [{
-      label: '# of Tomatoes',
-      data: [12, 19, 3, 5],
+      label: 'Percentage of Sentiments',
+      data: [12, 19, 3],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
         'rgba(54, 162, 235, 0.2)',
         'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)'
       ],
       borderColor: [
         'rgba(255,99,132,1)',
         'rgba(54, 162, 235, 1)',
         'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)'
       ],
       borderWidth: 1
     }]
@@ -85,7 +91,6 @@
   options: {
    	cutoutPercentage: 40,
     responsive: false,
-
   }
 });
 </script>
