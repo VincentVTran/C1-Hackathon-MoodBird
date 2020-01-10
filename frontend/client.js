@@ -14,7 +14,7 @@ var scatterChart = new Chart(ctx, {
   type: 'scatter',
   data: {
     datasets: [{
-      label: 'Scatter Plot',
+      label: 'Negative Sentiment Scatter Plot',
       data: [{x: 10, y: 4}]
     }]
   },
@@ -32,9 +32,12 @@ var scatterChart = new Chart(ctx, {
 var ctx3 = document.getElementById('barGraph').getContext('2d');
 var myBarChart = new Chart(ctx3, {
   type: 'bar',
-  datasets: [{
-    label: '# of Votes',
-    data: [],
+  label: '# of Votes',
+  data: {
+    datasets: [{
+      label: 'Negative Sentiment Scatter Plot',
+      data: [{x: 10, y: 4}]
+    }],
     backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -52,7 +55,7 @@ var myBarChart = new Chart(ctx3, {
         'rgba(255, 159, 64, 1)'
     ],
     borderWidth: 1
-}],
+},
 options: {
     scales: {
         yAxes: [{
@@ -101,7 +104,7 @@ function executeQuery(keyword) {
       console.log(data);
       addToPieGraph(data);
       addToScatterPlot(data);
-      // addToBarGraph(data);
+      addToBarGraph(data);
       // for (var i = 0; i < data.length; i++) {
       // if (data[i].sentiment.neg > 0.5) {
       //   negatives++;
@@ -161,35 +164,29 @@ function addToScatterPlot(form){
 
 function addToBarGraph(form) {
    //Removing data
-  for(i = 0;i < myBarChart.data.datasets.length;i++){
-    myBarChart.data.labels.pop();
-    myBarChart.data.datasets.pop();
+  for(i = 0;i < myBarChart.data.datasets[0].data.length;i++){
+    myBarChart.data.datasets[0].data.pop();
   }
   // console.log(myBarChart.data);
   sum = 0;
   average = 0;
   for(i=0;i<form.length;i++){
-    extractedDate = form[i].date;
-    extractedPositivity = form[i].sentiment.pos;
-    extractedNegativity = form[i].sentiment.neg;
-    extractedNeutral = form[i].sentiment.neu;
+    const extractedDate = form[i].date;
+    const extractedPositivity = form[i].sentiment.pos;
+    const extractedNegativity = form[i].sentiment.neg;
+    const extractedNeutral = form[i].sentiment.neu;
 
     sentiment = [extractedNeutral,extractedNegativity,extractedPositivity]
     sentiment.sort();
-    max = sentiment[2];
+    const max = sentiment[2];
     if(!myBarChart.data.labels.includes(extractedDate)){
       myBarChart.data.labels.push(extractedDate);
     }
-    sum += max;
+    
+    newResult = {x: myBarChart.data.labels.indexOf(extractedDate), y: max};
+    // console.log(newResult);
+    myBarChart.data.datasets[0].data.push(newResult); 
   }
-  average = sum/form.length;
-  myBarChart.data.datasets.push(average);
-  myBarChart.data.datasets.push(average);
-  myBarChart.data.datasets.push(average);
-  myBarChart.data.datasets.push(average);
-  myBarChart.data.datasets.push(average);
-  myBarChart.data.datasets.push(average);
-  myBarChart.data.datasets.push(average);
   console.log(myBarChart.data);
   myBarChart.update();
 }
