@@ -49,6 +49,7 @@ html {
     position: relative;
     width: 30vw;
     height: 30vh;
+    border: 40px;
     background-color: #FFFFFF;
     -webkit-box-shadow: 0.5vw 1vh 2vw #700550;
     box-shadow: 0.5vw 1vh 2vw #700550;
@@ -84,7 +85,6 @@ canvas {
     position: relative;
     margin: auto;
     padding: 0vw;
-    border: 1vw;
 }
 
 #searchBar {
