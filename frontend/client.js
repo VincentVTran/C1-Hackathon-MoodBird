@@ -12,6 +12,7 @@ function executeQuery() {
   $.ajax({
     url: prodURL.concat('test'),
     success: function(data) {
+      
       alert('SUCCESS');
       var positives = 0;
       var negatives = 0;
@@ -26,7 +27,7 @@ function executeQuery() {
           }
       }
 
-      pieData = [negatives, positives, neutrals]
+      pieData = [negatives, positives, neutrals];
 
     }
   });
