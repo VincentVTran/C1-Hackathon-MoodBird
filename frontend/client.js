@@ -1,5 +1,5 @@
 
-const prodURL = 'http://vincentvtran.pythonanywhere.com/api/hello';
+const prodURL = 'http://vincentvtran.pythonanywhere.com/hello';
 const localURL = 'http://localhost:5000/api'
 
 
