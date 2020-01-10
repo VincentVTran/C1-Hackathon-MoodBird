@@ -4,7 +4,7 @@ const localURL = 'http://localhost:5000/api'
 
 
 var scatterData = [];
-var pieData = [];
+var pieData = [12,9,3];
 var barData = [];
 
 
@@ -13,9 +13,21 @@ function executeQuery() {
     url: prodURL.concat('test'),
     success: function(data) {
       alert('SUCCESS');
+      var positives = 0;
+      var negatives = 0;
+      var neutrals = 0;
       for (var i = 0; i < data.length; i++) {
-
+          if (data.sentiment.neg > 0.5) {
+            negatives++;
+          } else if (data.sentiment.neg > 0.5) {
+            positives++;
+          } else {
+            neutrals++;
+          }
       }
+
+      pieData = [negatives, positives, neutrals]
+
     }
   });
   setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
@@ -68,7 +80,7 @@ data: {
   labels: ['NEGATIVE', 'POSITIVE', 'NEUTRAL'],
   datasets: [{
     label: 'Percentage of Sentiments',
-    data: [12, 19, 3],
+    data: pieData,
     backgroundColor: [
       'rgba(255, 99, 132, 0.5)',
       'rgba(54, 162, 235, 0.2)',
