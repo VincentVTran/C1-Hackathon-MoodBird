@@ -2,7 +2,7 @@
 
 h1 {
     font-family: "Comfortaa";
-    color: white;
+    color: #FFFFFF;
     margin: 0px;
     padding: 2rem;
     width: 100%;
@@ -19,7 +19,7 @@ p {
     padding-bottom: 2rem;
     font-size: 1.3rem;
     font-family: "Rubik";
-    color: #ffd622;
+    color: #FFD622;
 }
 
 html {
@@ -32,7 +32,6 @@ html {
 
 .graph-wrapper {
     background: none;
-    display: -webkit-flex;
     -webkit-justify-content: center;
     display: flex;
     justify-content: center;
@@ -48,10 +47,10 @@ html {
     position: relative;
     width: 30vw;
     height: 30vh;
-    background-color: white;
-    -webkit-box-shadow: 2px 8px 45px rgb(112, 5, 80);
-    box-shadow: 2px 8px 45px rgb(112, 5, 80);
-    -webkit-transition: all 0.2s linear;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 2px 8px 45px #700550;
+    box-shadow: 2px 8px 45px #700550;
+    -webkit-transition: all 0.3s linear;
     transition: all 0.3s linear;
 }
 
@@ -59,10 +58,23 @@ html {
     z-index: 2;
     -webkit-box-shadow: 4px 16px 45px rgb(156, 24, 117);
     box-shadow: 4px 16px 45px rgb(156, 24, 117);
-    -webkit-transform: scale(1.15);
-    transform: scale(1.15);
+    -webkit-transform: scale(1.75);
+    transform: scale(1.75);
+}
+
+.chart#scatter:hover {
+    -webkit-transform-origin: left;
+    transform-origin: left;
+}
+
+.chart#pie:hover {
     -webkit-transform-origin: center;
     transform-origin: center;
+}
+
+.chart#bar:hover {
+    -webkit-transform-origin: right;
+    transform-origin: right;
 }
 
 canvas {
@@ -82,10 +94,10 @@ canvas#pieChart {
     border: 0.3rem;
     border-style: solid;
     border-radius: 1rem;
-    border-color: #ffd622;
+    border-color: #FFD622;
     font-size: 1em;
     outline: none;
-    background-color: rgb(43, 39, 39);
+    background-color: #2B2727;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
@@ -100,7 +112,7 @@ canvas#pieChart {
 
 #searchBar:focus {
     width: 80%;
-    background-color: rgb(80, 80, 80);
+    background-color: #505050;
     -webkit-transition: width 0.4s ease-in-out;
     transition: 1s;
   }
