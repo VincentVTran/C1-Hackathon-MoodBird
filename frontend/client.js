@@ -7,12 +7,13 @@ var scatterData = [];
 var pieData = [12,9,3];
 var barData = [];
 
-
 function executeQuery(keyword) {
+  console.log("Keyword: "+prodURL+keyword)
   $.ajax({
     url: prodURL + keyword,
     success: function(data) {
       console.log(data);
+      
       var positives = 0;
       var negatives = 0;
       var neutrals = 0;
@@ -32,19 +33,27 @@ function executeQuery(keyword) {
           }
       }
       
-      
-
       pieData = [negatives, positives, neutrals];
       console.log(pieData);
       label = ['NEGATIVE', 'POSITIVE', 'NEUTRAL'];
       removeData(pieChart);
       addData(pieChart, label, pieData);
-
     }
   });
 }
 
+function addToScatterPlot(form){
 
+}
+
+function addToBarGraph(form){
+
+}
+
+function addToPieGraph(form){
+
+}
+// Graph Functions
 function addData(chart, label, data) {
   chart.data.labels.push(label[0]);
   chart.data.labels.push(label[1]);
@@ -70,20 +79,13 @@ function removeData(chart) {
 }
 
 
-
+// Execute Events
 $('#searchBar').keydown(function (e){
   if(e.keyCode == 13){
     var keyword = $("#searchBar").val()
     executeQuery(keyword);
   }
 });
-
-// document.getElementById('searchBar').addEventListener('keypress', function(event) {
-//   // you could also do keyCode === 13
-//   if (event.key === 'Enter') {
-//     console.log('do ajax request here');
-//   }
-// })
 
 $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
@@ -106,10 +108,10 @@ $(document).ready(function() {
           }]
       }
   }
-  });
-  // And for a pie chart
-  var ctx2 = document.getElementById('pieChart').getContext('2d');
-  var pieChart = new Chart(ctx2, {
+});
+  // Pie Chart
+var ctx2 = document.getElementById('pieChart').getContext('2d');
+var pieChart = new Chart(ctx2, {
 type: 'pie',
 data: {
   labels: ['NEGATIVE', 'POSITIVE', 'NEUTRAL'],
@@ -130,7 +132,7 @@ data: {
   }]
 },
 options: {
-   cutoutPercentage: 40,
+  cutoutPercentage: 40,
   responsive: false,
 }
 });
@@ -140,6 +142,5 @@ var myBarChart = new Chart(ctx3, {
   type: 'horizontalBar',
   data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]
 });
-
 
 });
