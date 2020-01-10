@@ -18,6 +18,7 @@
 
 <body>
     <h1 id="title">Capital One Customer Satisfaction</h1>
+<<<<<<< HEAD
     <div class="scatter">
         <canvas id="scatterPlot"></canvas>
     </div>
@@ -26,6 +27,10 @@
         <canvas id="pieChart"></canvas>
     </div>
 
+=======
+    <canvas id="scatterPlot"></canvas>
+    <canvas id="pieChart"></canvas>
+>>>>>>> 295896665ab93470d93568fc74310d35619644e2
 
     <script>
     var ctx = document.getElementById('scatterPlot').getContext('2d');
@@ -57,11 +62,19 @@
     });
     // And for a doughnut chart
     var ctx2 = document.getElementById('pieChart').getContext('2d');
+<<<<<<< HEAD
     var myDoughnutChart = new Chart(ctx, {
         type: 'doughnut',
         data: data,
         options: options
 });
+=======
+    var myDoughnutChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: data,
+        options: options
+    });
+>>>>>>> 295896665ab93470d93568fc74310d35619644e2
     </script>
 </body>
 
