@@ -1,6 +1,6 @@
 
-const prodURL = 'http://vincentvtran.pythonanywhere.com/api/';
-const localURL = 'http://localhost:5000/api'
+const prodURL = 'http://vincentvtran.pythonanywhere.com/api/hello';
+const localURL = 'http://localhost:5000/'
 
 
 var scatterData = [];
@@ -10,17 +10,16 @@ var barData = [];
 
 function executeQuery() {
   $.ajax({
-    url: prodURL.concat('test'),
+    url: prodURL,
     success: function(data) {
-      
-      alert('SUCCESS');
+      console.log(data);
       var positives = 0;
       var negatives = 0;
       var neutrals = 0;
       for (var i = 0; i < data.length; i++) {
-          if (data.sentiment.neg > 0.5) {
+          if (data[i].sentiment.neg > 0.5) {
             negatives++;
-          } else if (data.sentiment.neg > 0.5) {
+          } else if (data[i].sentiment.pos > 0.5) {
             positives++;
           } else {
             neutrals++;
@@ -28,6 +27,7 @@ function executeQuery() {
       }
 
       pieData = [negatives, positives, neutrals];
+      // NOW UPDATE PIE CHART WITH THIS NEW DATA
 
     }
   });

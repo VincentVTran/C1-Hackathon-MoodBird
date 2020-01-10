@@ -9,7 +9,11 @@ html {
     text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
     line-height: 1.3;
+=======
+    line-height: 1.6;
+>>>>>>> b7af3347a1253bc7d9724a743567843ae604220c
     overflow: hidden;
 }
 
