@@ -26,7 +26,6 @@ html {
     text-align: center;
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     line-height: 1.3;
     background-color: #023D5B;
 }
@@ -51,12 +50,13 @@ html {
     height: 30vh;
     background-color: white;
     -webkit-box-shadow: 2px 8px 45px rgb(112, 5, 80);
-        box-shadow: 2px 8px 45px rgb(112, 5, 80);
+    box-shadow: 2px 8px 45px rgb(112, 5, 80);
     -webkit-transition: all 0.2s linear;
-        transition: all 0.3s linear;
+    transition: all 0.3s linear;
 }
 
 .chart:hover {
+    z-index: 2;
     -webkit-box-shadow: 4px 16px 45px rgb(156, 24, 117);
     box-shadow: 4px 16px 45px rgb(156, 24, 117);
     -webkit-transform: scale(1.15);
@@ -100,7 +100,7 @@ canvas#pieChart {
 
 #searchBar:focus {
     width: 80%;
-    background-color: #D12E33;
+    background-color: rgb(92, 76, 76);
     -webkit-transition: width 0.4s ease-in-out;
     transition: 1s;
   }
