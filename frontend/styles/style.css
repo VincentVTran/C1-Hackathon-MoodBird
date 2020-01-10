@@ -3,7 +3,8 @@
 h1 {
     font-family: "Lato";
     color: #004978;
-    
+    margin: 0px;
+    padding: 0px;
 }   
 
 html {
@@ -80,13 +81,30 @@ canvas#pieChart {
 }
 
 #searchBar {
+    height: 50%;
     width: 30%;
     border-radius: 4px;
+    font-size: 1em;
     outline: none;
+    background-color: #004978;
+    color: white;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
 
+#searchBar:before {
+    background-color: #004978;
+}
+
 #searchBar:focus {
     width: 80%;
+    background-color: #990b0b;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: 1s;
   }
+
+.search-bar-container {
+    margin: 0px;
+    padding: 0px;
+    height: 10vh;
+}
