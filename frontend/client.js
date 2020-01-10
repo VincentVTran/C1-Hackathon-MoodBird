@@ -37,7 +37,6 @@ function executeQuery() {
 
     }
   });
-  setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
 }
 
 
@@ -69,7 +68,7 @@ $('#searchBar').keydown(function (e){
 
 $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
-  setTimeout(executeQuery, 5000);
+  executeQuery();
 
   var ctx = document.getElementById('scatterPlot').getContext('2d');
   scatterChart = new Chart(ctx, {
