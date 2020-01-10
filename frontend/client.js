@@ -1,10 +1,19 @@
 
+const prodURL = 'http://vincentvtran.pythonanywhere.com/api/';
+const localURL = 'http://localhost:5000/api'
+
+/* ADD  */
+var data = [];
+
 
 function executeQuery() {
   $.ajax({
-    url: 'http://jservice.io/api/clues',
+    url: prodURL.concat('test'),
     success: function(data) {
-      console.log(data);
+      alert('SUCCESS');
+      for (var i = 0; i < data.length; i++) {
+
+      }
     }
   });
   setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
