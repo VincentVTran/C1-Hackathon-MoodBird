@@ -16,8 +16,10 @@ body {
 }
 
 p {
+    padding-bottom: 2rem;
+    font-size: 1.3rem;
     font-family: "Lato";
-    color: white;
+    color: #ffd622;
 }
 
 html {
@@ -45,7 +47,11 @@ html {
 .graph-container-left, .graph-container-middle, .graph-container-right {
     width: 33%;
     margin: 0.5vw;
+}
 
+.graph-container-left, .graph-container-middle, .graph-container-right:hover {
+    width: 33%;
+    margin: 0.5vw;
 }
 
 .chart {
@@ -62,8 +68,8 @@ html {
 .chart:hover {
     -webkit-box-shadow: 4px 16px 45px rgb(156, 24, 117);
     box-shadow: 4px 16px 45px rgb(156, 24, 117);
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
     -webkit-transform-origin: center;
     transform-origin: center;
 }
@@ -88,8 +94,7 @@ canvas#pieChart {
     border-color: #ffd622;
     font-size: 1em;
     outline: none;
-    background-color: white;
-    color: black;
+    background-color: rgb(43, 39, 39);
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
@@ -98,8 +103,13 @@ canvas#pieChart {
     background-color: #004978;
 }
 
+::placeholder {
+    color: white;
+}
+
 #searchBar:focus {
     width: 80%;
+    background-color: #D12E33;
     -webkit-transition: width 0.4s ease-in-out;
     transition: 1s;
   }
