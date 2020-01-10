@@ -31,29 +31,44 @@ function executeQuery() {
       }
 
       pieData = [negatives, positives, neutrals];
-      // NOW UPDATE PIE CHART WITH THIS NEW DATA
+      label = ['NEGATIVE', 'POSITIVE', 'NEUTRAL'];
+      removeData(pieChart);
+      addData(pieChart, label, pieData);
 
     }
   });
-  // setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
+}
+
+
+function addData(chart, label, data) {
+  chart.data.labels.push(label);
+  chart.data.datasets.forEach((dataset) => {
+      dataset.data.push(data);
+  });
+  chart.update();
+}
+
+function removeData(chart) {
+  chart.data.labels.pop();
+  chart.data.datasets.forEach((dataset) => {
+      dataset.data.pop();
+  });
+  chart.update();
 }
 
 
 
-  document.getElementById('searchBar').addEventListener('keypress', function(event) {
-    // you could also do keyCode === 13
-    if (event.key === 'Enter') {
-      // var keyword = $("#searchBar").val();
-      // element.innerHTML = element.innerText || element.textContent;
-      // executeQuery(url+ keyword);
-      console.log("Worked")
-    }
-  });
-
+$('#searchBar').keydown(function (e){
+  if(e.keyCode == 13){
+    var keyword = $("#searchBar").text()
+    element.innerHTML = element.innerText || element.textContent;
+    executeQuery(url+ document.getElementById('searchBar').innerHTML.replace(/<[^>]*>/g, ""));
+  }
+});
 
 $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
-  setTimeout(executeQuery, 5000);
+  executeQuery();
 
   var ctx = document.getElementById('scatterPlot').getContext('2d');
   scatterChart = new Chart(ctx, {

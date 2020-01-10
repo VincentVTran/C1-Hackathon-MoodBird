@@ -14,11 +14,6 @@ html {
     overflow: hidden;
 }
 
-body {
-    /*
-    background-image: linear-gradient(blue, red);
-    */
-}
 
 .graph-wrapper {
     margin: auto;
@@ -46,14 +41,6 @@ body {
 
 .divider {
     height: 40vh;
-}
-
-.graph-title {
-    /*
-    border: 0.3rem;
-    border-style: solid;
-    border-color: black;
-    */
 }
 
 .chart {
