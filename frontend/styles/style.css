@@ -12,11 +12,22 @@ html {
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
     height: 100vh;
+    overflow: hidden;
+}
+
+.graph-container-all {
+    height: 100vh;
+    white-space: nowrap;
+    overflow: visible;
+
 }
 
 .graph-container-top {
+    float: left;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 2vh;
+    margin-bottom: 2vh;
 }
 
 .graph-container-bottom {
@@ -24,13 +35,22 @@ html {
     margin-right: auto;
 }
 
+.graph-title {
+    border: 0.3rem;
+    border-style: solid;
+    border-color: black;
+}
+
 .chart {
     display: inline-block;
     position: relative;
     width: 30vw;
     height: 30vh;
-    padding: 20px;
-    border: 3px;
+    padding: 0px;
+    border: 0.3rem;
+    border-style: solid;
+    border-color: black;
+   
     -webkit-box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
     box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
     -webkit-transition: all 0.2s linear;
@@ -44,12 +64,10 @@ html {
         transform: translate3D(0, -2px, 0);
 }
 
-.chart:click
-#clear {
-    clear: both;
-}
-
 canvas {
     display: inline-block;
     position: relative;
+    margin: auto;
+    margin-bottom: 2vh;
+    padding: 0px;
 }
