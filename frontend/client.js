@@ -35,16 +35,21 @@ function executeQuery() {
 
     }
   });
-  setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
+  // setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
 }
 
-$('#searchBar').keydown(function (e){
-  if(e.keyCode == 13){
-    var keyword = $("#searchBar").text()
-    element.innerHTML = element.innerText || element.textContent;
-    executeQuery(url+ document.getElementById('searchBar').innerHTML.replace(/<[^>]*>/g, ""));
-  }
-});
+
+
+  document.getElementById('searchBar').addEventListener('keypress', function(event) {
+    // you could also do keyCode === 13
+    if (event.key === 'Enter') {
+      // var keyword = $("#searchBar").val();
+      // element.innerHTML = element.innerText || element.textContent;
+      // executeQuery(url+ keyword);
+      console.log("Worked")
+    }
+  });
+
 
 $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
