@@ -9,7 +9,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="scripts/scatter.js"></script>
-    <script src="/ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
  <!--<script src={{ url_for('styles', filename='style.css') }}></script>-->   
  <!--<script src={{ url_for('scripts', filename='client.js') }}></script>--> 
@@ -18,7 +18,14 @@
 
 <body>
     <h1 id="title">Capital One Customer Satisfaction</h1>
-    <canvas id="scatterPlot"></canvas>
+    <div class="scatter">
+        <canvas id="scatterPlot"></canvas>
+    </div>
+
+    <div class="pie">
+        <canvas id="pieChart"></canvas>
+    </div>
+
 
     <script>
     var ctx = document.getElementById('scatterPlot').getContext('2d');
@@ -47,6 +54,13 @@
             }]
         }
     }
+    });
+    // And for a doughnut chart
+    var ctx2 = document.getElementById('pieChart').getContext('2d');
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: options
 });
     </script>
 </body>

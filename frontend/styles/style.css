@@ -1,13 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    background-image: #004978;
-}
-
 h1 {
     font-family: "Lato";
     color: #004978;
@@ -22,3 +14,7 @@ html {
     height: 100vh;
 }
 
+.scatter {
+    width: 30vw;
+    height: 30vh;
+}
