@@ -126,7 +126,30 @@ function addToScatterPlot(form){
 }
 
 function addToBarGraph(form) {
+   //Removing data
+  for(i = 0;i < scatterChart.data.datasets.length;i++){
+    myBarChart.data.labels.pop();
+    myBarChart.data.datasets.pop();
+  }
 
+  for(i=0;i<form.length;i++){
+    const extractedDate = form[i].date;
+    const extractedPositivity = form[i].sentiment.pos;
+    const extractedNegativity = form[i].sentiment.neg;
+    const extractedNeutral = form[i].sentiment.neu;
+
+    sentiment = [extractedNeutral,extractedNegativity,extractedPositivity]
+    sentiment.sort();
+    const max = sentiment[2];
+    if(!categories.includes(extractedDate)){
+      categories.push(extractedDate);
+    }
+    newResult = {x: extractedDate, y: max};
+    console.log(newResult);
+    myBarChart.data.push(newResult);
+  }
+  console.log(myBarChart.data);
+  myBarChart.update();
 }
 
 function addToPieGraph(form) {
