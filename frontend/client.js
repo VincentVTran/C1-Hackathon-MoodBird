@@ -7,6 +7,10 @@ var scatterData = [];
 var pieData = [12,9,3];
 var barData = [];
 
+var scatterChart;
+var pieChart;
+var myBarChart;
+
 
 function executeQuery() {
   $.ajax({
@@ -47,7 +51,7 @@ $(document).ready(function() {
   setTimeout(executeQuery, 5000);
 
   var ctx = document.getElementById('scatterPlot').getContext('2d');
-  var scatterChart = new Chart(ctx, {
+  scatterChart = new Chart(ctx, {
   type: 'scatter',
   data: {
       datasets: [{
@@ -75,7 +79,7 @@ $(document).ready(function() {
   });
   // And for a pie chart
   var ctx2 = document.getElementById('pieChart').getContext('2d');
-  var pieChart = new Chart(ctx2, {
+  pieChart = new Chart(ctx2, {
 type: 'pie',
 data: {
   labels: ['NEGATIVE', 'POSITIVE', 'NEUTRAL'],
@@ -102,7 +106,7 @@ options: {
 });
 
 var ctx3 = document.getElementById('barGraph').getContext('2d');
-var myBarChart = new Chart(ctx3, {
+myBarChart = new Chart(ctx3, {
   type: 'horizontalBar',
   data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]
 });
