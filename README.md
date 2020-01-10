@@ -1,16 +1,8 @@
 <img src="frontend/images/capital-one-logo.png" title="Capital One" alt="Capital One Summit 2020">
 
-<!-- [![FVCproductions](https://avatars1.githubusercontent.com/u/4284691?v=3&s=200)](http://fvcproductions.com) -->
+# Satisfaction Dashboard
 
-***INSERT GRAPHIC HERE (include hyperlink in image)***
-
-# Repository Title Goes Here
-
-> Subtitle or Short Description Goes Here
-
-> ideally one sentence
-
-> include terms/tags that can be searched
+> Sentiment analysis using social media API's and displays them in a useful chart
 
 **Badges will go here**
 
