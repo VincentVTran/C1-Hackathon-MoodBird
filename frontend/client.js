@@ -1,5 +1,5 @@
 
-const prodURL = 'http://vincentvtran.pythonanywhere.com/hello';
+const prodURL = 'http://vincentvtran.pythonanywhere.com/api/';
 const localURL = 'http://localhost:5000/'
 
 
@@ -74,8 +74,8 @@ function removeData(chart) {
 $('#searchBar').keydown(function (e){
   if(e.keyCode == 13){
     var keyword = $("#searchBar").text()
-    element.innerHTML = element.innerText || element.textContent;
-    executeQuery(url+ document.getElementById('searchBar').innerHTML.replace(/<[^>]*>/g, ""));
+    console.log(keyword);
+    executeQuery(prodURL + document.getElementById('searchBar').innerHTML.replace(/<[^>]*>/g, ""));
   }
 });
 
