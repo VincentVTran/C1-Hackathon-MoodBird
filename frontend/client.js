@@ -2,8 +2,10 @@
 const prodURL = 'http://vincentvtran.pythonanywhere.com/api/';
 const localURL = 'http://localhost:5000/api'
 
-/* ADD  */
-var data = [];
+
+var scatterData = [];
+var pieData = [];
+var barData = [];
 
 
 function executeQuery() {
@@ -85,5 +87,12 @@ options: {
   responsive: false,
 }
 });
+
+var ctx3 = document.getElementById('barGraph').getContext('2d');
+var myBarChart = new Chart(ctx3, {
+  type: 'horizontalBar',
+  data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]
+});
+
 
 });
