@@ -15,32 +15,54 @@ html {
     overflow: hidden;
 }
 
-.graph-container-all {
+body {
+    /*
+    background-image: linear-gradient(blue, red);
+    */
+}
+
+.graph-wrapper {
     margin: auto;
-    text-align: center;
+    overflow: visible;
 }
 
 .graph-container-left {
-    display: inline;
     margin-left: auto;
     margin-right: auto;
+    float: left;
 }
 
 .graph-container-right {
     margin-left: auto;
     margin-right: auto;
+    float: right;
 }
 
+.graph-container-bottom {
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+.divider {
+    height: 300px;
+}
+
+.graph-title {
+    /*
+    border: 0.3rem;
+    border-style: solid;
+    border-color: black;
+    */
+}
 
 .chart {
     display: inline-block;
     position: relative;
-    width: 30vw;
-    height: 30vh;
+    width: 40vw;
+    height: 40vh;
     padding: 0px;
     object-fit: cover;
-    margin-left: auto;
-    margin-right: auto;
     /*
     border: 0.3rem;
     border-style: solid;
@@ -66,8 +88,7 @@ html {
 canvas {
     display: inline-block;
     position: relative;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
     padding: 0px;
 }
 

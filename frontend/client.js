@@ -2,8 +2,10 @@
 const prodURL = 'http://vincentvtran.pythonanywhere.com/api/hello';
 const localURL = 'http://localhost:5000/api'
 
-/* ADD  */
-var data = [];
+
+var scatterData = [];
+var pieData = [12,9,3];
+var barData = [];
 
 
 function executeQuery() {
@@ -12,9 +14,21 @@ function executeQuery() {
     success: function(data) {
       console.log(data);
       alert('SUCCESS');
+      var positives = 0;
+      var negatives = 0;
+      var neutrals = 0;
       for (var i = 0; i < data.length; i++) {
-
+          if (data.sentiment.neg > 0.5) {
+            negatives++;
+          } else if (data.sentiment.neg > 0.5) {
+            positives++;
+          } else {
+            neutrals++;
+          }
       }
+
+      pieData = [negatives, positives, neutrals];
+
     }
   });
   setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
@@ -67,7 +81,7 @@ data: {
   labels: ['NEGATIVE', 'POSITIVE', 'NEUTRAL'],
   datasets: [{
     label: 'Percentage of Sentiments',
-    data: [12, 19, 3],
+    data: pieData,
     backgroundColor: [
       'rgba(255, 99, 132, 0.5)',
       'rgba(54, 162, 235, 0.2)',
@@ -86,5 +100,12 @@ options: {
   responsive: false,
 }
 });
+
+var ctx3 = document.getElementById('barGraph').getContext('2d');
+var myBarChart = new Chart(ctx3, {
+  type: 'horizontalBar',
+  data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]
+});
+
 
 });
