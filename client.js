@@ -35,7 +35,7 @@ var myBarChart = new Chart(ctx3, {
   label: '# of Votes',
   data: {
     datasets: [{
-      label: 'Negative Sentiment Scatter Plot',
+      label: 'Negative Sentiment Bar Graph',
       data: [{x: 10, y: 4}]
     }],
     backgroundColor: [

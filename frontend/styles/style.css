@@ -47,6 +47,7 @@ html {
 
 .chart {
     position: relative;
+    margin-top: 10vh;
     width: 30vw;
     height: 30vh;
     border: 0.1rem;
@@ -65,8 +66,8 @@ html {
     border-color: #9C1875;
     -webkit-box-shadow: 0.5vw 1vh 2vw #9C1875;
     box-shadow: 0.5vw 1vh 2vw #9C1875;
-    -webkit-transform: scale(1.75);
-    transform: scale(1.75);
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6);
 }
 
 .chart#scatter:hover {
