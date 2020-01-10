@@ -1,15 +1,11 @@
 
-const prodURL = 'http://vincentvtran.pythonanywhere.com/api/hello';
+const prodURL = 'http://vincentvtran.pythonanywhere.com/hello';
 const localURL = 'http://localhost:5000/'
 
 
 var scatterData = [];
 var pieData = [12,9,3];
 var barData = [];
-
-var scatterChart;
-var pieChart;
-var myBarChart;
 
 
 function executeQuery() {
@@ -20,6 +16,7 @@ function executeQuery() {
       var positives = 0;
       var negatives = 0;
       var neutrals = 0;
+      var scores = {};
       for (var i = 0; i < data.length; i++) {
           if (data[i].sentiment.neg > 0.5) {
             negatives++;
@@ -28,7 +25,14 @@ function executeQuery() {
           } else {
             neutrals++;
           }
+          if (score[i].sentiment.neu != 0) {
+            scores.x = score[i].sentiment.pos;
+            scores.y = score[i].sentiment.neg;
+            scatterData.push(scores);
+          }
       }
+      
+      
 
       pieData = [negatives, positives, neutrals];
       console.log(pieData);
@@ -80,21 +84,12 @@ $(document).ready(function() {
   executeQuery();
 
   var ctx = document.getElementById('scatterPlot').getContext('2d');
-  scatterChart = new Chart(ctx, {
+  var scatterChart = new Chart(ctx, {
   type: 'scatter',
   data: {
       datasets: [{
           label: 'Scatter Dataset',
-          data: [{
-              x: -10,
-              y: 0
-          }, {
-              x: 0,
-              y: 10
-          }, {
-              x: 10,
-              y: 5
-          }]
+          data: scatterData
       }]
   },
   options: {
@@ -108,7 +103,7 @@ $(document).ready(function() {
   });
   // And for a pie chart
   var ctx2 = document.getElementById('pieChart').getContext('2d');
-  pieChart = new Chart(ctx2, {
+  var pieChart = new Chart(ctx2, {
 type: 'pie',
 data: {
   labels: ['NEGATIVE', 'POSITIVE', 'NEUTRAL'],
@@ -135,7 +130,7 @@ options: {
 });
 
 var ctx3 = document.getElementById('barGraph').getContext('2d');
-myBarChart = new Chart(ctx3, {
+var myBarChart = new Chart(ctx3, {
   type: 'horizontalBar',
   data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]
 });
