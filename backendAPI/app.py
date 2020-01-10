@@ -3,8 +3,8 @@ import json
 import ssl
 import nltk
 import requests
+from requests_oauthlib import OAuth1
 import twitter
-import pprint
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from flask import Flask, render_template, url_for, request, redirect, session
@@ -39,21 +39,31 @@ def index():
 
 @app.route('/api/<term>')
 def main(term):
+
     # TWITTER API CALL
-    t = twitter.Api(consumer_key=CONSUMER_KEY,
-                consumer_secret=CONSUMER_SECRET,
-                access_token_key=ACCESS_TOKEN,
-                access_token_secret=ACCESS_SECRET)
+    url = "https://api.twitter.com/1.1/search/tweets.json?q=football&tweet_mode=extended&count=100"
+    auth = OAuth1(CONSUMER_KEY, CONSUMER_SECRET,
+                    ACCESS_TOKEN, ACCESS_SECRET)
 
-    results = t.GetSearch(term='Capital one', count=10, return_json=True)#, geocode="39.290386, -76.612190, 100mi")
+    results = requests.get(url=url, auth=auth)
+    res = results.json()
 
-    print(results)
+    for i in range(0, 5):
+        if('retweeted_status' in results.json()['statuses'][i].keys()):
+            print("RETWEET",res['statuses'][i]['retweeted_status']['full_text'])
+        else:
+            print(res['statuses'][i]['full_text'])
 
+        print(res['statuses'][i]['user']['location'])
+        print(res['statuses'][i]['created_at'])
+        print('---------------------------------------------------------------')
+    
     sid = SentimentIntensityAnalyzer()
+    sid.polarity_scores(res['statuses'][0]['full_text'])
 
 
 if __name__ == '__main__':
    # ssl._create_default_https_context = _create_unverified_https_context
    # nltk.download('vader_lexicon')
     #app.run(debug=False, use_reloader=False)
-    main()
+    main('term')
