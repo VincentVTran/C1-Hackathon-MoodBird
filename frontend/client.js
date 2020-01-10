@@ -13,7 +13,6 @@ function executeQuery() {
     url: prodURL,
     success: function(data) {
       console.log(data);
-      alert('SUCCESS');
       var positives = 0;
       var negatives = 0;
       var neutrals = 0;
@@ -28,6 +27,7 @@ function executeQuery() {
       }
 
       pieData = [negatives, positives, neutrals];
+      // NOW UPDATE PIE CHART WITH THIS NEW DATA
 
     }
   });
