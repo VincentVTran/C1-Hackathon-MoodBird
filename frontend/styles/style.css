@@ -17,4 +17,17 @@ html {
 .scatter {
     width: 30vw;
     height: 30vh;
+    margin: 1rem;
+    display: inline-block;
+    white-space: normal;
+    position: relative;
+}
+
+.pie {
+    width: 30vw;
+    height: 30vh;
+    margin: 1rem;
+    display: inline-block;
+    white-space: normal;
+    position: relative;
 }
