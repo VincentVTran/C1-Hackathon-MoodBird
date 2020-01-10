@@ -1,24 +1,14 @@
-
-/* Localhost for development */
-const URL = "http://localhost:5000"
-
-
-$.ajax(
-    {
-      url: URL.concat('api'),
-      type: 'GET',
-      success: function(result) {
-        
-      },
-      error: function(xhr,status,error) {
-        
-        // log the errors and alerts that an error has occurred
-        console.log(xhr);
-        console.log(status);
-        console.log(error);
-        alert("ERROR WITH API CALL! CHECK CONSOLE");
-  
-      }
+function executeQuery() {
+  $.ajax({
+    url: 'http://jservice.io/api/clues',
+    success: function(data) {
+      console.log(data);
     }
-  );
-  
+  });
+  setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
+}
+
+$(document).ready(function() {
+  // run the first time; all subsequent calls will take care of themselves
+  setTimeout(executeQuery, 5000);
+});
