@@ -35,12 +35,33 @@ function executeQuery() {
       
 
       pieData = [negatives, positives, neutrals];
-      // NOW UPDATE PIE CHART WITH THIS NEW DATA
+      label = ['NEGATIVE', 'POSITIVE', 'NEUTRAL'];
+      removeData(pieChart);
+      addData(pieChart, label, pieData);
 
     }
   });
   setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
 }
+
+
+function addData(chart, label, data) {
+  chart.data.labels.push(label);
+  chart.data.datasets.forEach((dataset) => {
+      dataset.data.push(data);
+  });
+  chart.update();
+}
+
+function removeData(chart) {
+  chart.data.labels.pop();
+  chart.data.datasets.forEach((dataset) => {
+      dataset.data.pop();
+  });
+  chart.update();
+}
+
+
 
 $('#searchBar').keydown(function (e){
   if(e.keyCode == 13){
