@@ -15,25 +15,27 @@ html {
 }
 
 .graph-container {
-    max-width : 1200px;
+    max-width : 1500px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .scatter {
-    max-width: 450px;
+    max-width: 600px;
     display: inline-block;
     position: relative;
-    padding: 5px;
+    padding: 20px;
     border: 5px;
+    border-color: black;
 }
 
 .pie {
-    max-width: 450px;
+    max-width: 600px;
     display: inline-block;
     position: relative;
-    padding: 5px;
+    padding: 20px;
     border: 5px;
+    border-color: black;
 }
 
 #clear {
