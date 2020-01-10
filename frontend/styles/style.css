@@ -15,30 +15,34 @@ html {
     overflow: hidden;
 }
 
-.graph-container-all {
-    height: 100vh;
-    white-space: nowrap;
-    overflow: visible;
-
+body {
+    /*
+    background-image: linear-gradient(blue, red);
+    */
 }
 
-.graph-container-top {
+.graph-container-all {
+    margin: auto;
+}
+
+.graph-container-left {
     float: left;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 2vh;
-    margin-bottom: 2vh;
 }
 
-.graph-container-bottom {
+.graph-container-right {
+    float: right;
     margin-left: auto;
     margin-right: auto;
 }
 
 .graph-title {
+    /*
     border: 0.3rem;
     border-style: solid;
     border-color: black;
+    */
 }
 
 .chart {
@@ -47,10 +51,13 @@ html {
     width: 30vw;
     height: 30vh;
     padding: 0px;
+    object-fit: cover;
+    /*
     border: 0.3rem;
     border-style: solid;
+    border-radius: 1rem;
     border-color: black;
-   
+    */
     -webkit-box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
     box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
     -webkit-transition: all 0.2s linear;
@@ -62,12 +69,18 @@ html {
         box-shadow: 2px 8px 45px #dd9c4a;
     -webkit-transform: translate3D(0, -2px, 0);
         transform: translate3D(0, -2px, 0);
+
+    width: 45vw;
+    height: 45vh;
+    object-fit: cover;
 }
 
 canvas {
     display: inline-block;
     position: relative;
     margin: auto;
-    margin-bottom: 2vh;
     padding: 0px;
+    background-image: none;
+    background-color: none;
+    object-fit: cover;
 }
