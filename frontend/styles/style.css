@@ -84,8 +84,8 @@ canvas {
     position: relative;
     margin: auto;
     padding: 0vw;
+    border: 1vw;
 }
-
 
 #searchBar {
     height: 50%;
