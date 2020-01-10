@@ -100,7 +100,7 @@ canvas#pieChart {
 
 #searchBar:focus {
     width: 80%;
-    background-color: rgb(92, 76, 76);
+    background-color: rgb(80, 80, 80);
     -webkit-transition: width 0.4s ease-in-out;
     transition: 1s;
   }
