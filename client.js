@@ -35,7 +35,7 @@ var myBarChart = new Chart(ctx3, {
   label: '# of Votes',
   data: {
     datasets: [{
-      label: 'Negative Sentiment Bar Graph',
+      label: 'Positive Sentiment Bar Graph',
       data: [{x: 10, y: 4}]
     }],
     backgroundColor: [
@@ -152,7 +152,7 @@ function addToScatterPlot(form){
       categories.push(extractedDate);
     }
     
-    newResult = {x: categories.indexOf(extractedDate), y: max};
+    newResult = {x: categories.indexOf(extractedDate), y: extractedNegativity};
     // console.log(newResult);
     
     scatterChart.data.datasets[0].data.push(newResult); 
@@ -185,7 +185,7 @@ function addToBarGraph(form) {
       myBarChart.data.labels.push(extractedDate);
     }
     
-    newResult = {x: myBarChart.data.labels.indexOf(extractedDate), y: max};
+    newResult = {x: myBarChart.data.labels.indexOf(extractedDate), y: extractedPositivity};
     // console.log(newResult);
     myBarChart.data.datasets[0].data.push(newResult); 
   }
