@@ -152,7 +152,7 @@ function addToScatterPlot(form){
       categories.push(extractedDate);
     }
     
-    newResult = {x: categories.indexOf(extractedDate), y: extractedNegativity};
+    newResult = {x: categories.indexOf(extractedDate), y:  max};
     // console.log(newResult);
     
     scatterChart.data.datasets[0].data.push(newResult); 
