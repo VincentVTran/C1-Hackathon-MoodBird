@@ -92,15 +92,14 @@ canvas#pieChart {
     height: 95%; 
 }
 
-button {
-    width: 100%;
-    transition-duration: 0.4s;
+#searchBar {
+    width: 30%;
     border-radius: 4px;
     outline: none;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 }
 
-button:hover {
-    background-color: #990b0b;
-    color: white;
-    outline: none;
-}
+#searchBar:focus {
+    width: 80%;
+  }
