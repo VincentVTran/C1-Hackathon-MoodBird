@@ -21,20 +21,27 @@ body {
     */
 }
 
-.graph-container-all {
+.graph-wrapper {
     margin: auto;
+    overflow: none;
 }
 
 .graph-container-left {
-    float: left;
     margin-left: auto;
     margin-right: auto;
+    float: left;
 }
 
 .graph-container-right {
-    float: right;
     margin-left: auto;
     margin-right: auto;
+    float: right;
+}
+
+.graph-container-bottom {
+    margin-left: auto;
+    margin-right: auto;
+    float: bottom;
 }
 
 .graph-title {
@@ -48,8 +55,8 @@ body {
 .chart {
     display: inline-block;
     position: relative;
-    width: 30vw;
-    height: 30vh;
+    width: 40vw;
+    height: 40vh;
     padding: 0px;
     object-fit: cover;
     /*

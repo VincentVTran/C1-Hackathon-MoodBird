@@ -22,42 +22,30 @@
 <body>
     <h1 id="title">Capital One Customer Satisfaction</h1>
 
-    <div class="graph-container-all">
-    <div class="graph-container-left">
-        <div class="graph-title">
-            <p>Tweet Sentiment Visualization</p>
-        </div>
-
-        <div class="chart">
-            <canvas id="scatterPlot"></canvas>
-            <div class="expand-button">
-                <button class="expand" onclick="expandGraph(this)">Click to expand</button>
+    <div class="graph-wrapper">
+        <div class="graph-wrapper-top">
+            <div class="graph-container-left">
+                <div class="graph-title">
+                    <p>Tweet Sentiment Visualization</p>
+                </div>
+        
+                <div class="chart">
+                    <canvas id="scatterPlot"></canvas>
+                </div>
             </div>
-        </div>
-
-        <p>Sentiment Distributions</p>
-        <div class="chart">
-            <canvas id="pieChart"></canvas>
-            <div class="expand-button">
-                <button class="expand">Click to expand</button>
+            <div class="graph-container-right">
+                <p>Sentiment Distributions</p>
+                <div class="chart">
+                    <canvas id="pieChart"></canvas>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <div class="graph-container-right">
-        <p>?????</p>
-       <div class="chart">
-        <div class="expand-button">
-            <button class="expand">Click to expand</button>
-        </div>
-       </div>
-       <p>?????</p>
-       <div class="chart">
-        <div class="expand-button">
-            <button class="expand">Click to expand</button>
-        </div>
-       </div>
-    </div>
+            <div class="graph-container-bottom">
+                <p>?????</p>
+                <div class="chart">
+                </div>
+            </div>
+        </div>     
     </div>
     
 
