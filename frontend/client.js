@@ -75,6 +75,13 @@ $('#searchBar').keydown(function (e){
   }
 });
 
+// document.getElementById('searchBar').addEventListener('keypress', function(event) {
+//   // you could also do keyCode === 13
+//   if (event.key === 'Enter') {
+//     console.log('do ajax request here');
+//   }
+// })
+
 $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
   executeQuery();
