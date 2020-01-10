@@ -15,42 +15,35 @@
 </head>
 
 <body>
-    <div>
 
 
-    <h1 id="title">Capital One Customer Satisfaction Dashboard
-        <div class="search-bar-container">
-            <input type="text" id="searchBar" placeholder="Search text"/>
-        </div>
-
-    </h1>
+    <h1 id="title">Capital One Customer Satisfaction Dashboard</h1>
 
     <div class="graph-wrapper">
-        <div class="graph-wrapper-top">
-            <div class="graph-container-left">
-                <div class="graph-title">
-                    <p>Tweet Sentiment Visualization</p>
-                </div>
-        
-                <div class="chart">
-                    <canvas id="scatterPlot"></canvas>
-                </div>
-            </div>
-            <div class="graph-container-right">
-                <p>Sentiment Distributions</p>
-                <div class="chart">
-                    <canvas id="pieChart"></canvas>
-                </div>
+        <div class="graph-container-left">
+            <div class="graph-title">
+                <p>Tweet Sentiment Visualization</p>
+            </div>       
+            <div class="chart">
+                <canvas id="scatterPlot"></canvas>
             </div>
         </div>
-        <div class="divider"></div>
-        <div class="graph-container-bottom">
+        <div class="graph-container-middle">
+            <p>Sentiment Distributions</p>
+            <div class="chart">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+        <div class="graph-container-right">
             <p>Sentiments Over the Last Week</p>
             <div class="chart">
                 <canvas id="barGraph"></canvas>
             </div>
         </div>
     </div>    
+    <div class="search-bar-container">
+        <input type="text" id="searchBar" placeholder=" Search text"/>
+    </div>
      
 </body>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
