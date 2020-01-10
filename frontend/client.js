@@ -8,9 +8,9 @@ var pieData = [12,9,3];
 var barData = [];
 
 
-function executeQuery() {
+function executeQuery(keyword) {
   $.ajax({
-    url: prodURL,
+    url: prodURL + keyword,
     success: function(data) {
       console.log(data);
       var positives = 0;
@@ -25,7 +25,7 @@ function executeQuery() {
           } else {
             neutrals++;
           }
-          if (score[i].sentiment.neu != 0) {
+          if (scores[i].sentiment.neg != 0) {
             scores.x = score[i].sentiment.pos;
             scores.y = score[i].sentiment.neg;
             scatterData.push(scores);
@@ -73,9 +73,8 @@ function removeData(chart) {
 
 $('#searchBar').keydown(function (e){
   if(e.keyCode == 13){
-    var keyword = $("#searchBar").text()
-    console.log(keyword);
-    executeQuery(prodURL + document.getElementById('searchBar').innerHTML.replace(/<[^>]*>/g, ""));
+    var keyword = $("#searchBar").val()
+    executeQuery(keyword);
   }
 });
 
@@ -88,7 +87,7 @@ $('#searchBar').keydown(function (e){
 
 $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
-  executeQuery();
+  executeQuery("default");
 
   var ctx = document.getElementById('scatterPlot').getContext('2d');
   var scatterChart = new Chart(ctx, {
