@@ -15,13 +15,13 @@ html {
 }
 
 .graph-container {
-    overflow: auto;
+    max-width : 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .scatter {
-    width: 30vw;
-    height: 30vh;
-    margin: 1rem;
+    max-width: 450px;
     display: inline-block;
     position: relative;
     padding: 5px;
@@ -29,13 +29,15 @@ html {
 }
 
 .pie {
-    width: 30vw;
-    height: 30vh;
-    margin: 1rem;
+    max-width: 450px;
     display: inline-block;
     position: relative;
     padding: 5px;
     border: 5px;
+}
+
+#clear {
+    clear: both;
 }
 
 canvas {
