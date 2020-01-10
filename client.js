@@ -178,7 +178,7 @@ function addToBarGraph(form) {
     const extractedNegativity = form[i].sentiment.neg;
     const extractedNeutral = form[i].sentiment.neu;
 
-    sentiment = [extractedNeutral,extractedNegativity,max]
+    sentiment = [extractedNeutral,extractedNegativity,extractedPositivity]
     sentiment.sort();
     const max = sentiment[2];
     if(!myBarChart.data.labels.includes(extractedDate)){
