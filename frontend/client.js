@@ -1,5 +1,5 @@
 
-const prodURL = 'http://vincentvtran.pythonanywhere.com/api/';
+const prodURL = 'http://vincentvtran.pythonanywhere.com/api/hello';
 const localURL = 'http://localhost:5000/api'
 
 /* ADD  */
@@ -8,8 +8,9 @@ var data = [];
 
 function executeQuery() {
   $.ajax({
-    url: prodURL.concat('test'),
+    url: prodURL,
     success: function(data) {
+      console.log(data);
       alert('SUCCESS');
       for (var i = 0; i < data.length; i++) {
 
