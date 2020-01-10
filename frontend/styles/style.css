@@ -59,20 +59,19 @@ body {
     border-color: black;
     */
     -webkit-box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
-    box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
     -webkit-transition: all 0.2s linear;
-    transition: all 0.2s linear;
+        transition: all 0.3s linear;
 }
 
 .chart:hover {
-    -webkit-box-shadow: 2px 8px 45px #dd9c4a;
-        box-shadow: 2px 8px 45px #dd9c4a;
+    -webkit-box-shadow: 2px 8px 45px #990b0b;
+        box-shadow: 2px 8px 45px #990b0b;
     -webkit-transform: translate3D(0, -2px, 0);
         transform: translate3D(0, -2px, 0);
 
     width: 45vw;
     height: 45vh;
-    object-fit: cover;
 }
 
 canvas {
@@ -80,7 +79,21 @@ canvas {
     position: relative;
     margin: auto;
     padding: 0px;
-    background-image: none;
-    background-color: none;
-    object-fit: cover;
+}
+
+canvas#pieChart {
+    height: 95%; 
+}
+
+button {
+    width: 100%;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+    outline: none;
+}
+
+button:hover {
+    background-color: #990b0b;
+    color: white;
+    outline: none;
 }

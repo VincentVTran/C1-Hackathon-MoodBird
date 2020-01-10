@@ -11,6 +11,7 @@
     <!-- <script src="scripts/scatter.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
     <script src="client.js"></script>
+    <script src="graph.js"></script>
     
 
  <!--<script src={{ url_for('styles', filename='style.css') }}></script>-->   
@@ -28,24 +29,33 @@
         </div>
 
         <div class="chart">
-
             <canvas id="scatterPlot"></canvas>
+            <div class="expand-button">
+                <button class="expand" onclick="expandGraph(this.id)">Click to expand</button>
+            </div>
         </div>
+
         <p>Sentiment Distributions</p>
         <div class="chart">
-
             <canvas id="pieChart"></canvas>
+            <div class="expand-button">
+                <button class="expand">Click to expand</button>
+            </div>
         </div>
     </div>
 
     <div class="graph-container-right">
         <p>?????</p>
        <div class="chart">
-
+        <div class="expand-button">
+            <button class="expand">Click to expand</button>
+        </div>
        </div>
        <p>?????</p>
        <div class="chart">
-
+        <div class="expand-button">
+            <button class="expand">Click to expand</button>
+        </div>
        </div>
     </div>
     </div>
