@@ -35,27 +35,35 @@ function executeQuery() {
       
 
       pieData = [negatives, positives, neutrals];
+      console.log(pieData);
       label = ['NEGATIVE', 'POSITIVE', 'NEUTRAL'];
       removeData(pieChart);
       addData(pieChart, label, pieData);
 
     }
   });
-  setTimeout(executeQuery, 5000); // you could choose not to continue on failure...
 }
 
 
 function addData(chart, label, data) {
-  chart.data.labels.push(label);
+  chart.data.labels.push(label[0]);
+  chart.data.labels.push(label[1]);
+  chart.data.labels.push(label[2]);
   chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(data);
+      dataset.data.push(data[0]);
+      dataset.data.push(data[1]);
+      dataset.data.push(data[2]);
   });
   chart.update();
 }
 
 function removeData(chart) {
   chart.data.labels.pop();
+  chart.data.labels.pop();
+  chart.data.labels.pop();
   chart.data.datasets.forEach((dataset) => {
+      dataset.data.pop();
+      dataset.data.pop();
       dataset.data.pop();
   });
   chart.update();
@@ -73,7 +81,7 @@ $('#searchBar').keydown(function (e){
 
 $(document).ready(function() {
   // run the first time; all subsequent calls will take care of themselves
-  setTimeout(executeQuery, 5000);
+  executeQuery();
 
   var ctx = document.getElementById('scatterPlot').getContext('2d');
   var scatterChart = new Chart(ctx, {
