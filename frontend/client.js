@@ -8,6 +8,33 @@ var pieData = [1, 2, 3];
 const pieLabel = ["Negative", "Positive", "Neutral"];
 var barData = [];
 
+//Scatter Plot
+var ctx = document.getElementById('scatterPlot').getContext('2d');
+var scatterChart = new Chart(ctx, {
+  type: 'scatter',
+  data: {
+    datasets: [{
+      label: 'Scatter Dataset',
+      data: scatterData
+    }]
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        type: 'linear',
+        position: 'bottom'
+      }]
+    }
+  }
+});
+
+//Bar Graph
+var ctx3 = document.getElementById('barGraph').getContext('2d');
+var myBarChart = new Chart(ctx3, {
+  type: 'horizontalBar',
+  data: [{ x: '2016-12-25', y: 20 }, { x: '2016-12-26', y: 10 }]
+});
+
 // Pie Chart
 var ctx2 = document.getElementById('pieChart').getContext('2d');
 var pieChart = new Chart(ctx2, {
@@ -42,16 +69,8 @@ function executeQuery(keyword) {
     url: prodURL + keyword,
     success: function (data) {
       console.log(data);
-
-      var positives = 0;
-      var negatives = 0;
-      var neutrals = 0;
-      var scores = {};
-
       addToPieGraph(data);
-
-
-
+      addToScatterPlot(data);
 
       // for (var i = 0; i < data.length; i++) {
       // if (data[i].sentiment.neg > 0.5) {
@@ -77,8 +96,33 @@ function executeQuery(keyword) {
   });
 }
 
-function addToScatterPlot(form) {
+function addToScatterPlot(form){
+  var categories = [];
 
+  //Removing data
+  for(i = 0;i < scatterChart.data.datasets.length;i++){
+    scatterChart.data.datasets.pop();
+  }
+
+  //Adding data
+  for(i=0;i<form.length;i++){
+    const extractedDate = form[i].date;
+    const extractedPositivity = form[i].sentiment.pos;
+    const extractedNegativity = form[i].sentiment.neg;
+    const extractedNeutral = form[i].sentiment.neu;
+
+    sentiment = [extractedNeutral,extractedNegativity,extractedPositivity]
+    sentiment.sort();
+    const max = sentiment[2];
+    if(!categories.includes(extractedDate)){
+      categories.push(extractedDate);
+    }
+    newResult = {x: extractedDate, y: max};
+    console.log(newResult);
+    myBarChart.data.push(newResult);
+  }
+  console.log(myBarChart.data);
+  myBarChart.update();
 }
 
 function addToBarGraph(form) {
@@ -141,31 +185,4 @@ $('#searchBar').keydown(function (e) {
 $(document).ready(function () {
   // run the first time; all subsequent calls will take care of themselves
   executeQuery("capitalone");
-
-  var ctx = document.getElementById('scatterPlot').getContext('2d');
-  var scatterChart = new Chart(ctx, {
-    type: 'scatter',
-    data: {
-      datasets: [{
-        label: 'Scatter Dataset',
-        data: scatterData
-      }]
-    },
-    options: {
-      scales: {
-        xAxes: [{
-          type: 'linear',
-          position: 'bottom'
-        }]
-      }
-    }
-  });
-
-
-  var ctx3 = document.getElementById('barGraph').getContext('2d');
-  var myBarChart = new Chart(ctx3, {
-    type: 'horizontalBar',
-    data: [{ x: '2016-12-25', y: 20 }, { x: '2016-12-26', y: 10 }]
-  });
-
 });
