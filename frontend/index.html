@@ -20,25 +20,21 @@
 
 <body>
     <h1 id="title">Capital One Customer Satisfaction</h1>
-<<<<<<< HEAD
+
     <div class="graph-container">
-=======
-    <h2>Tweet Sentiment Visualization</h2>
-    <br>
->>>>>>> b9f8d8b60da4ce7f36fef7444b83016cc93a5a6a
-    <div class="scatter">
-        <canvas id="scatterPlot"></canvas>
+
+        <div class="scatter">
+            <h2>Tweet Sentiment Visualization</h2>
+            <canvas id="scatterPlot"></canvas>
+        </div>
+        <div class="pie">
+            <h2>Sentiment Distributions</h2>
+            <canvas id="pieChart"></canvas>
+        </div>
+        <div id="clear"></div>
     </div>
 
-    <br>
-    <h2>Sentiment Distributions</h2>
-    <br>
-    <div class="pie">
-        <canvas id="pieChart"></canvas>
-    </div>
-</div>
-
-    <script>
+<script>
     var ctx = document.getElementById('scatterPlot').getContext('2d');
     var scatterChart = new Chart(ctx, {
     type: 'scatter',
@@ -68,10 +64,10 @@
     });
     // And for a pie chart
     var ctx2 = document.getElementById('pieChart').getContext('2d');
-    var pieChart = new Chart(ctx, {
+    var pieChart = new Chart(ctx2, {
   type: 'pie',
   data: {
-    labels: ['NEGATIVE', 'POSITIVE', 'NEGATIVE'],
+    labels: ['NEGATIVE', 'POSITIVE', 'NEUTRAL'],
     datasets: [{
       label: 'Percentage of Sentiments',
       data: [12, 19, 3],
