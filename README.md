@@ -4,7 +4,7 @@
 
 > Sentiment analysis using social media API's and displays them in a useful chart
 
-**Badges will go here**
+**Technologies**
 
 - build status
 - issues (waffle.io maybe)
@@ -17,23 +17,22 @@
 - license
 - etc.
 
-> Tips
-
-- HAVE WHITE SPACE
-- MAKE IT PRETTY
-- GIFS ARE REALLY COOL
 
 ## Table of Contents
-
-> If your `README` has a lot of info, section headers might be nice.
 
 - [Features](#features)
 - [Algorithms](#algorithms)
 
-
 ---
 
 ## Features
+
+- **How do I do *specifically* so and so?**
+    - No problem! Just do this.
+
+---
+
+## Algorithms
 
 ```javascript
 // code away!
@@ -45,13 +44,5 @@ let generateProject = project => {
   }
 };
 ```
-
----
-
-
-## Algorithms
-
-- **How do I do *specifically* so and so?**
-    - No problem! Just do this.
 
 ---
