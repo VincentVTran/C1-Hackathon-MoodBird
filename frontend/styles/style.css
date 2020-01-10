@@ -15,26 +15,28 @@ html {
 }
 
 .graph-container {
-    max-width : 1200px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.scatter {
-    max-width: 450px;
+.chart {
     display: inline-block;
     position: relative;
     padding: 5px;
     border: 5px;
+    -webkit-box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
 }
 
-.pie {
-    max-width: 450px;
-    display: inline-block;
-    position: relative;
-    padding: 5px;
-    border: 5px;
+.chart:hover {
+    -webkit-box-shadow: 2px 8px 45px #dd9c4a;
+        box-shadow: 2px 8px 45px #dd9c4a;
+    -webkit-transform: translate3D(0, -2px, 0);
+        transform: translate3D(0, -2px, 0);
 }
+
 
 #clear {
     clear: both;
