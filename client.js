@@ -133,7 +133,8 @@ function addToScatterPlot(form){
   var categories = [];
 
   //Removing data
-  for(i = 0;i < scatterChart.data.datasets.length;i++){
+  size = scatterChart.data.datasets[0].data.length;
+  for(i = 0;i < size;i++){
     scatterChart.data.datasets[0].data.pop();
   }
 
@@ -164,12 +165,13 @@ function addToScatterPlot(form){
 
 function addToBarGraph(form) {
    //Removing data
-  for(i = 0;i < myBarChart.data.datasets[0].data.length;i++){
+    size = myBarChart.data.datasets[0].data.length;
+  for(i = 0;i < size;i++){
     myBarChart.data.datasets[0].data.pop();
+    console.log(myBarChart.data.datasets[0].data.length);
   }
   // console.log(myBarChart.data);
-  sum = 0;
-  average = 0;
+  positiveCount = 0;
   for(i=0;i<form.length;i++){
     const extractedDate = form[i].date;
     const extractedPositivity = form[i].sentiment.pos;
