@@ -1,6 +1,6 @@
 
 const prodURL = 'http://vincentvtran.pythonanywhere.com/hello';
-const localURL = 'http://localhost:5000/api'
+const localURL = 'http://localhost:5000/'
 
 
 var scatterData = [];
@@ -17,9 +17,9 @@ function executeQuery() {
       var negatives = 0;
       var neutrals = 0;
       for (var i = 0; i < data.length; i++) {
-          if (data.sentiment.neg > 0.5) {
+          if (data[i].sentiment.neg > 0.5) {
             negatives++;
-          } else if (data.sentiment.neg > 0.5) {
+          } else if (data[i].sentiment.pos > 0.5) {
             positives++;
           } else {
             neutrals++;
