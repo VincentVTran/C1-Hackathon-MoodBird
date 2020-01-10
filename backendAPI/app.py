@@ -9,8 +9,10 @@ import datetime
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from flask import Flask, render_template, url_for, request, redirect, session
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+CORS(app, support_credentials=True)
 
 with open('keys.json', 'r') as keysJSON:
         keys = json.load(keysJSON)
@@ -30,6 +32,7 @@ auth = OAuth1(CONSUMER_KEY, CONSUMER_SECRET,
 #################
 
 @app.route('/api/<name>', methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
 def main(name):
     until = "&until="
     url_date = '' # empty id holder
