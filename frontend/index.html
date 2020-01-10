@@ -7,16 +7,56 @@
     <title>Capital One Customer Satisfaction</title>
     <link rel="stylesheet" href="styles/style.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="scripts/scatter.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+ <!--<script src={{ url_for('styles', filename='style.css') }}></script>-->   
+ <!--<script src={{ url_for('scripts', filename='client.js') }}></script>--> 
+
 </head>
 
 <body>
     <h1 id="title">Capital One Customer Satisfaction</h1>
-    <div class="search-container">
-        <div class="input-group">
-            <input type="text" id="search-bar" placeholder="Search text"/>
-        </div>
-    </div>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <canvas id="scatterPlot"></canvas>
+    <canvas id="pieChart"></canvas>
+
+    <script>
+    var ctx = document.getElementById('scatterPlot').getContext('2d');
+    var scatterChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Scatter Dataset',
+            data: [{
+                x: -10,
+                y: 0
+            }, {
+                x: 0,
+                y: 10
+            }, {
+                x: 10,
+                y: 5
+            }]
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+    });
+    // And for a doughnut chart
+    var ctx2 = document.getElementById('pieChart').getContext('2d');
+    var myDoughnutChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: data,
+        options: options
+    });
+    </script>
 </body>
 
 </html>

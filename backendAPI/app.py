@@ -28,7 +28,7 @@ CONSUMER_SECRET = keys['API Secret Key']
 # Main route to render the home page of the app
 @app.route('/')
 def index():
-    return render_template('../frontend/index.html')
+    return render_template('index.html', template_folder="../frontend")
 
 
 #################
@@ -37,8 +37,10 @@ def index():
 #
 #################
 
-@app.route('/api/<term>')
-def main(term):
+@app.route('/api')
+def main():
+
+    # ADD A PARAMETER SEARCH TERM
 
     # TWITTER API CALL
     url = "https://api.twitter.com/1.1/search/tweets.json?q=football&tweet_mode=extended&count=100"
