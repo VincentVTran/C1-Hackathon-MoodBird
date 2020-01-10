@@ -152,7 +152,7 @@ function addToScatterPlot(form){
       categories.push(extractedDate);
     }
     
-    newResult = {x: categories.indexOf(extractedDate), y:  max};
+    newResult = {x: categories.indexOf(extractedDate), y:  extractedNegativity};
     // console.log(newResult);
     
     scatterChart.data.datasets[0].data.push(newResult); 
@@ -178,7 +178,7 @@ function addToBarGraph(form) {
     const extractedNegativity = form[i].sentiment.neg;
     const extractedNeutral = form[i].sentiment.neu;
 
-    sentiment = [extractedNeutral,extractedNegativity,extractedPositivity]
+    sentiment = [extractedNeutral,extractedNegativity,max]
     sentiment.sort();
     const max = sentiment[2];
     if(!myBarChart.data.labels.includes(extractedDate)){
