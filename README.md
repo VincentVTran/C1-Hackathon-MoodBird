@@ -5,7 +5,7 @@
 > Sentiment analysis using social media API's and displays them in a useful chart
 
 ## Contributors
-* [**Vincent Tran**](https://github.com/eahelf)
+* [**Vincent Tran**](https://github.com/VincentVTran)
 * [**Sahir Mody**](https://github.com/Sahir1234)
 * [**Lizandro Franco**](https://github.com/lizandrof273)
 * [**Collin Howland**](https://github.com/CollinHowland)
